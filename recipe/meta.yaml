@@ -22,6 +22,7 @@ requirements:
     - cmake        # [win]
     - pkg-config   # [unix]
     - libtool      # [unix]
+    - toolchain3-rpi3
     - vc   9       # [win and py27]
     - vc  10       # [win and py34]
     - vc  14       # [win and py>=35]

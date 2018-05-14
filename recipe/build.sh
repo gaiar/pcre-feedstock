@@ -11,9 +11,16 @@ then
     export LINKFLAGS="${LINKFLAGS} -stdlib=libc++ -std=c++11"
 fi
 
-./configure --prefix="${PREFIX}" --enable-utf --enable-unicode-properties
-make
-make check
+export CFLAGS="-march=native -mtune=native"
+export CXXFLAGS="-march=native -mtune=native"
+
+
+
+chmod +x configure
+
+./configure --prefix="${PREFIX}" --enable-jit --enable-utf --enable-unicode-properties
+make -j${CPU_COUNT}
+make -j${CPU_COUNT} check
 make install
 
 # Delete man pages.
